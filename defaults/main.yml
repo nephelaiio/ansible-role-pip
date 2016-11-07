@@ -1,0 +1,7 @@
+---
+# User variables for role
+pip_packages: pip
+
+pip_packages_helpers: python-setuptools
+
+pip_packages_state: present

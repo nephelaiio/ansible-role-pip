@@ -1,0 +1,41 @@
+---
+# Include variable definitions
+- name: "include variable overrides"
+  include_vars: "{{ item }}"
+  with_first_found:
+    - files:
+      - "vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+      - "vars/{{ ansible_distribution }}.yml"
+      - "vars/{{ ansible_os_family }}.yml"
+      skip: true
+  tags:
+    - pip
+
+# Install helper packages
+- name: install pip helper packages
+  package: >
+    name="{{ pip_packages_helpers }}"
+    state="{{ pip_packages_state }}"
+  become: yes
+  tags:
+    - pip
+
+# Install packages
+- name: install pip packages
+  easy_install: >
+    name="{{ pip_packages }}"
+    state="{{ pip_packages_state }}"
+  when: ansible_os_family != "Archlinux"
+  become: yes
+  tags:
+    - pip
+
+# Install packages
+- name: install pip packages
+  package: >
+    name="{{ pip_packages }}"
+    state="{{ pip_packages_state }}"
+  when: ansible_os_family == "Archlinux"
+  become: yes
+  tags:
+    - pip

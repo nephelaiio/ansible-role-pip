@@ -1,0 +1,7 @@
+---
+# handlers file for pip
+- name: restart pip services
+  service:
+    name=pip_service_name
+    state=restarted
+  become: yes
