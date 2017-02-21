@@ -1,31 +1,32 @@
+# vim: sw=2 ts=2 et:
 ---
 driver:
   name: docker
 
 docker:
   containers:
-      - name: ansible-pip-jessie
-        image: debian
-        image_version: jessie
-        ansible_groups:
-          - test
-      - name: ansible-pip-xenial
-        image: ubuntu
-        image_version: xenial
-        ansible_groups:
-          - test
-      - name: ansible-pip-centos7
-        image: centos
-        image_version: 7
-        ansible_groups:
-          - test
-      - name: ansible-pip-arch
-        image: pritunl/archlinux
-        image_version: latest
-        dockerfile: docker/arch.dockerfile
-        command: /bin/bash
-        ansible_groups:
-          - test
+    - name: ansible-pip-jessie
+      image: debian
+      image_version: jessie
+      ansible_groups:
+        - test
+    - name: ansible-pip-xenial
+      image: ubuntu
+      image_version: xenial
+      ansible_groups:
+        - test
+    - name: ansible-pip-centos7
+      image: centos
+      image_version: 7
+      ansible_groups:
+        - test
+    - name: ansible-pip-arch
+      image: pritunl/archlinux
+      image_version: latest
+      dockerfile: docker/arch.dockerfile
+      command: /bin/bash
+      ansible_groups:
+        - test
 
 molecule:
   ignore_paths:
@@ -35,3 +36,5 @@ molecule:
 
 verifier:
   name: testinfra
+  options:
+    ignore: roles
