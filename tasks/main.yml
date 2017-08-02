@@ -13,18 +13,18 @@
 
 # Install helper packages
 - name: install pip helper packages
-  package: >
-    name="{{ pip_packages_helpers }}"
-    state="{{ pip_packages_state }}"
+  package:
+    name: "{{ pip_packages_helpers }}"
+    state: "{{ pip_packages_state }}"
   become: yes
   tags:
     - pip
 
 # Install packages
 - name: install pip packages
-  easy_install: >
-    name="{{ pip_packages }}"
-    state="{{ pip_packages_state }}"
+  easy_install:
+    name: "{{ pip_packages }}"
+    state: "{{ pip_packages_state }}"
   when: ansible_os_family != "Archlinux"
   become: yes
   tags:
@@ -32,9 +32,9 @@
 
 # Install packages
 - name: install pip packages
-  package: >
-    name="{{ pip_packages }}"
-    state="{{ pip_packages_state }}"
+  package:
+    name: "{{ pip_packages }}"
+    state: "{{ pip_packages_state }}"
   when: ansible_os_family == "Archlinux"
   become: yes
   tags:
