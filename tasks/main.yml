@@ -18,7 +18,7 @@
   tags:
     - pip
 
-- name: install pip packages
+- name: install pip
   easy_install:
     name: "{{ pip_packages }}"
     state: "{{ pip_packages_state }}"
@@ -27,7 +27,7 @@
   tags:
     - pip
 
-- name: install packages
+- name: install pip
   package:
     name: "{{ pip_packages }}"
     state: "{{ pip_packages_state }}"
