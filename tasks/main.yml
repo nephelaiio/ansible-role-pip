@@ -7,16 +7,12 @@
         - "vars/{{ ansible_distribution }}.yml"
         - "vars/{{ ansible_os_family }}.yml"
       skip: true
-  tags:
-    - pip
 
 - name: install helper packages
   package:
     name: "{{ pip_packages_helpers }}"
     state: "{{ pip_packages_state }}"
   become: yes
-  tags:
-    - pip
 
 - name: install pip
   easy_install:
@@ -24,8 +20,6 @@
     state: "{{ pip_packages_state }}"
   when: ansible_os_family != "Archlinux"
   become: yes
-  tags:
-    - pip
 
 - name: install pip
   package:
@@ -33,5 +27,3 @@
     state: "{{ pip_packages_state }}"
   when: ansible_os_family == "Archlinux"
   become: yes
-  tags:
-    - pip
