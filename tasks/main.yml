@@ -10,13 +10,13 @@
 
 - name: install helper packages
   package:
-    name: "{{ pip_packages_helpers }}"
+    name: "{{ pip_packages_helpers | default(pip_packages_helpers_default) }}"
     state: "{{ pip_packages_state }}"
   become: yes
 
 - name: install pip
   easy_install:
-    name: "{{ pip_packages }}"
+    name: "{{ pip_packages | default(pip_packages_default) }}"
     state: "{{ pip_packages_state }}"
   when: ansible_os_family != "Archlinux"
   become: yes

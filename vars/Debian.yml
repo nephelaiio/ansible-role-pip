@@ -1,4 +1,5 @@
 ---
-pip_packages_helpers:
+pip_packages_default: pip
+pip_packages_helpers_default:
   - python-setuptools
   - ca-certificates
