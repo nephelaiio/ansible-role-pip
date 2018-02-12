@@ -23,7 +23,7 @@
 
 - name: install pip
   package:
-    name: "{{ pip_packages }}"
+    name: "{{ pip_packages | default(pip_packages_default) }}"
     state: "{{ pip_packages_state }}"
   when: ansible_os_family == "Archlinux"
   become: yes
