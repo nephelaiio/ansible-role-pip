@@ -20,4 +20,6 @@ galaxy_info:
   galaxy_tags:
     - pip
 
-dependencies: []
+dependencies:
+  - role: geerlingguy.repo-epel
+    when: ansible_os_family == 'RedHat'

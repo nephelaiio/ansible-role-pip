@@ -1,7 +1,0 @@
----
-pip_packages_default:
-  - python-pip
-  - python2-pip
-pip_packages_helpers_default:
-  - python-setuptools
-  - python2-setuptools
