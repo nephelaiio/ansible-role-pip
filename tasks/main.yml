@@ -3,3 +3,8 @@
   package:
     name: "{{ pip_packages | default(pip_packages_default) }}"
     state: "{{ pip_packages_state }}"
+
+- name: install pip packages
+  pip:
+    name: "{{ pip_pip_names | default([]) }}"
+    state: "{{ pip_pip_state | default('present') }}"

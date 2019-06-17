@@ -8,3 +8,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 def test_command(Command):
     assert Command('pip --version').rc == 0
+
+
+def test_pip(PipPackage):
+    assert 'docker' in PipPackage.get_packages()

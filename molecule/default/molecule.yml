@@ -20,6 +20,11 @@ provisioner:
   name: ansible
   lint:
     name: ansible-lint
+  inventory:
+    group_vars:
+      all:
+        pip_pip_names:
+          - docker
 scenario:
   name: default
 verifier:
