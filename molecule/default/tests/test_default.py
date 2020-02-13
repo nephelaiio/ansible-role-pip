@@ -7,8 +7,14 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 def test_command(host):
-    assert host.command('pip --version').rc == 0
+    if host.exists('pip3'):
+        assert host.command('pip3 --version').rc == 0
+    else:
+        assert host.command('pip --version').rc == 0
 
 
 def test_pip(host):
-    assert 'docker' in host.pip_package.get_packages()
+    if host.exists('pip3'):
+        assert 'setuptools' in host.pip_package.get_packages(pip_path='pip3')
+    else:
+        assert 'setuptools' in host.pip_package.get_packages(pip_path='pip')
