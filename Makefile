@@ -1,2 +1,2 @@
-lint:
-	molecule lint
+test:
+	molecule test

@@ -7,17 +7,15 @@ lint:
   name: yamllint
 platforms:
   - name: centos8
-    image: centos:8
+    image: centos:centos8
   - name: centos7
-    image: centos:7
+    image: centos:centos7
   - name: xenial
     image: ubuntu:xenial
   - name: bionic
     image: ubuntu:bionic
   - name: stretch
     image: debian:stretch
-  - name: buster
-    image: debian:buster
 provisioner:
   name: ansible
   lint:

@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
   gather_facts: False
-  no_log: "{{ not lookup('env', 'MOLECULE_DEBUG') | bool }}"
+  no_log: no
   vars:
     molecule_file: "{{ lookup('env', 'MOLECULE_FILE') }}"
     molecule_ephemeral_directory: "{{ lookup('env', 'MOLECULE_EPHEMERAL_DIRECTORY') }}"
@@ -18,17 +18,19 @@
       register: platforms
 
     - name: Discover local Docker images
-      docker_image_facts:
+      docker_image_info:
         name: "molecule_local/{{ item.item.name }}"
       with_items: "{{ platforms.results }}"
       register: docker_images
 
     - name: Build an Ansible compatible image
       docker_image:
-        path: "{{ molecule_ephemeral_directory }}"
+        source: build
+        build:
+          path: "{{ molecule_ephemeral_directory }}"
         name: "molecule_local/{{ item.item.image }}"
         dockerfile: "{{ item.item.dockerfile | default(item.invocation.module_args.dest) }}"
-        force: "{{ item.item.force | default(True) }}"
+        force_source: "{{ item.item.force | default(True) }}"
       with_items: "{{ platforms.results }}"
       when: platforms.changed or docker_images.results | map(attribute='images') | select('equalto', []) | list | count >= 0
 
