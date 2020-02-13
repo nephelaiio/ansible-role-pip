@@ -1,0 +1,3 @@
+---
+pip_packages_default:
+  - python3-pip

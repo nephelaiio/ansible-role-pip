@@ -6,6 +6,8 @@ driver:
 lint:
   name: yamllint
 platforms:
+  - name: centos8
+    image: centos:8
   - name: centos7
     image: centos:7
   - name: xenial
@@ -14,8 +16,8 @@ platforms:
     image: ubuntu:bionic
   - name: stretch
     image: debian:stretch
-  - name: arch
-    image: archlinux/base:latest
+  - name: buster
+    image: debian:buster
 provisioner:
   name: ansible
   lint:

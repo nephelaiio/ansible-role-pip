@@ -23,9 +23,11 @@ Please make sure your environment has [docker](https://www.docker.com) installed
 
 Role is tested against the following distributions (docker images):
   * Ubuntu Xenial
+  * Ubuntu Bionic
   * CentOS 7
+  * CentOS 8
   * Debian Stretch
-  * Arch Linux
+  * Debian Buster
 
 You can test the role directly from sources using command ` molecule test `
 
