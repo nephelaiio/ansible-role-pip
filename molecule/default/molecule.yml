@@ -14,6 +14,8 @@ platforms:
     image: ubuntu:xenial
   - name: bionic
     image: ubuntu:bionic
+  - name: focal
+    image: ubuntu:focal
   - name: stretch
     image: debian:stretch
 provisioner:
