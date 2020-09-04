@@ -10,12 +10,28 @@
       - "vars/default.yml"
   loop: "{{ q('first_found', params, skip=True) }}"
 
-- name: install pip
-  package:
+- block:
+
+    - name: install epel
+      yum:
+        name: epel-release
+
+    - name: install pip yum packages
+      yum:
+        name: "{{ pip_packages | default(pip_packages_default) }}"
+        state: "{{ pip_packages_state }}"
+        disable_gpg_check: yes
+
+  when: ansible_os_family | lower == 'redhat'
+
+- name: install pip deb packages
+  apt:
     name: "{{ pip_packages | default(pip_packages_default) }}"
     state: "{{ pip_packages_state }}"
+  when: ansible_os_family | lower == 'debian'
 
-- name: install pip packages
+- name: install pips
   pip:
     name: "{{ pip_pip_names | default([]) }}"
     state: "{{ pip_pip_state | default('present') }}"
+    executable: "{{ pip_executable | default(omit) }}"

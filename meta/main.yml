@@ -19,7 +19,3 @@ galaxy_info:
         - stretch
   galaxy_tags:
     - pip
-
-dependencies:
-  - role: geerlingguy.repo-epel
-    when: ansible_os_family == 'RedHat'

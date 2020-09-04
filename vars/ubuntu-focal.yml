@@ -5,3 +5,4 @@ pip_packages_default:
   - python3-setuptools
   - python-apt
   - python-setuptools
+pip_executable: /usr/bin/pip3
