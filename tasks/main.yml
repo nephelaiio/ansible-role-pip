@@ -35,3 +35,4 @@
     name: "{{ pip_pip_names | default([]) }}"
     state: "{{ pip_pip_state | default('present') }}"
     executable: "{{ pip_executable | default(omit) }}"
+  changed_when: false
