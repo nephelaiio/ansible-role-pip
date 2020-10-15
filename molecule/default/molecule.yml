@@ -3,8 +3,10 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
+lint: |
+  set -e
+  yamllint .
+  ansible-lint .
 platforms:
   - name: centos8
     image: centos:centos8
@@ -20,8 +22,6 @@ platforms:
     image: debian:stretch
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
   inventory:
     group_vars:
       all:
@@ -31,5 +31,3 @@ scenario:
   name: default
 verifier:
   name: testinfra
-  lint:
-    name: flake8
