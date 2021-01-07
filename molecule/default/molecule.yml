@@ -16,6 +16,10 @@ provisioner:
   log: true
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+  inventory:
+    group_vars:
+      all:
+        pip_pip_names: docker
 scenario:
   name: default
 verifier:
