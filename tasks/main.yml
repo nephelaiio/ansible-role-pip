@@ -16,7 +16,7 @@
       yum:
         name: epel-release
 
-    - name: install pipp yum packages
+    - name: install pip yum packages
       yum:
         name: "{{ _pip_packages }}"
         state: "{{ pip_packages_state }}"
