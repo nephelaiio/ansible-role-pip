@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   author: nephelaiio
+  role_name: pip
   description: An Ansible role to install and configure pip
   license: MIT
   min_ansible_version: 2.2
