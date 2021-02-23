@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: Ted Cook
+  author: nephelaiio
   description: An Ansible role to install and configure pip
   license: MIT
   min_ansible_version: 2.2
