@@ -13,7 +13,14 @@ pip_packages_default:
     - python3-apt
     - python3-pip
     - python3-setuptools
+    - python-setuptools
     - python-apt
+  ubuntu-impish:
+    - python3-apt
+    - python3-pip
+    - python3-setuptools
+    - python3-apt
+    - python3-setuptools
     - python-setuptools
   centos-8:
     - python3-pip
