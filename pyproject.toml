@@ -11,8 +11,10 @@ python = "^3.8"
 ansible = "^6.6.0"
 ansible-lint = "^6.8.6"
 MarkupSafe = "2.0.1"
-molecule = {extras = ["molecule-podman"], version = "^4.0.3"}
 netaddr = "^0.8.0"
+podman = "^4.3.0"
+molecule = "^4.0.3"
+molecule-podman = "^2.0.3"
 
 
 [build-system]

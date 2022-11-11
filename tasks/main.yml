@@ -24,7 +24,6 @@
         state: "{{ pip_packages_state }}"
         disable_gpg_check: yes
 
-
 - name: install pip deb packages
   ansible.builtin.apt:
     name: "{{ _pip_packages }}"

@@ -19,6 +19,8 @@ pip_packages_default:
     - python3-apt
     - python3-pip
     - python3-setuptools
-  centos-8:
+    - python-pip
+    - python-setuptools
+  centos:
     - python3-pip
 pip_packages_state: present

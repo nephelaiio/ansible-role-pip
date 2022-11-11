@@ -5,7 +5,7 @@ driver:
   name: podman
 platforms:
   - name: instance
-    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2004}-ansible
+    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2204}-ansible
     tmpfs:
       - /run
       - /tmp
@@ -27,4 +27,4 @@ provisioner:
 scenario:
   name: default
 verifier:
-  name: testinfra
+  name: ansible
