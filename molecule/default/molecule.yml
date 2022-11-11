@@ -2,14 +2,18 @@
 dependency:
   name: galaxy
 driver:
-  name: docker
+  name: podman
 platforms:
   - name: instance
-    image: "${MOLECULE_DOCKER_IMAGE}"
-    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    image: geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2004}-ansible
+    tmpfs:
+      - /run
+      - /tmp
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged: true
+    capabilities:
+      - SYS_ADMIN
+    command: ${MOLECULE_IMAGE_COMMAND:-"/lib/systemd/systemd"}
     pre_build_image: true
 provisioner:
   name: ansible
