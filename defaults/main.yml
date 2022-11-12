@@ -9,6 +9,12 @@ pip_packages_default:
     - python-apt
     - python-pip
     - python-setuptools
+  ubuntu-bionic:
+    - python3-apt
+    - python3-pip
+    - python3-setuptools
+    - python-setuptools
+    - python-apt
   ubuntu-focal:
     - python3-apt
     - python3-pip
@@ -19,8 +25,6 @@ pip_packages_default:
     - python3-apt
     - python3-pip
     - python3-setuptools
-    - python-pip
-    - python-setuptools
   centos:
     - python3-pip
 pip_packages_state: present

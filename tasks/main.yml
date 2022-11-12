@@ -30,8 +30,7 @@
     state: "{{ pip_packages_state }}"
   when: ansible_os_family | lower == 'debian'
 
-- name: install pips
+- name: install pip packages
   ansible.builtin.pip:
     name: "{{ pip_pip_names | default([]) }}"
     state: "{{ pip_pip_state | default('present') }}"
-  changed_when: false
