@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Ted Cook <teodoro.cook@gmail.com>"]
 readme = "README.md"
-packages = [{include = "nephelaiio"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
