@@ -1,0 +1,25 @@
+---
+- name: verify
+
+  hosts: all
+
+  pre_tasks:
+
+    - name: query python command
+      ansible.builtin.shell: type python3
+      register: python3_type
+      failed_when: false
+
+    - name: register check commands
+      ansible.builtin.set_fact:
+        python_cmd: "{{ 'python3' if python3_type.rc == 0 else 'python' }}"
+        pip_cmd: "{{ 'pip3' if python3_type.rc == 0 else 'pip' }}"
+
+    - name: verify python command
+      command: "{{ python_cmd }} --version"
+
+    - name: verify pip command
+      command: "{{ pip_cmd }} --version"
+
+    - name: verify setuptools
+      command: "{{ python_cmd }} -c 'import setuptools'"
