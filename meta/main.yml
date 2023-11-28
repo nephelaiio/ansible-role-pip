@@ -1,25 +1,25 @@
 ---
 galaxy_info:
-  author: nephelaiio
   role_name: pip
+  author: nephelaiio
   description: An Ansible role to install and configure pip
   license: MIT
-  min_ansible_version: 2.2
+  min_ansible_version: "2.4"
   platforms:
     - name: EL
       versions:
-        - 7
-    - name: Archlinux
+        - "9"
+    - name: ArchLinux
       versions:
-        - all
+        - "all"
     - name: Ubuntu
       versions:
-        - xenial
+        - "jammy"
+        - "focal"
     - name: Debian
       versions:
-        - stretch
-  galaxy_tags:
-    - pip
+        - "bullseye"
+        - "bookworm"
+  galaxy_tags: ["pip"]
 
-dependencies:
-  - nephelaiio.plugins
+dependencies: []

@@ -1,21 +1,20 @@
 [tool.poetry]
-name = "nephelaiio-pip"
+name = "nephelaiio.pip"
 version = "0.1.0"
 description = ""
 authors = ["Ted Cook <teodoro.cook@gmail.com>"]
-readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8"
-ansible = "^6.6.0"
-ansible-lint = "^6.8.6"
-MarkupSafe = "2.0.1"
-netaddr = "^0.8.0"
-podman = "^4.3.0"
-molecule = "^4.0.3"
-molecule-podman = "^2.0.3"
+python = "^3.11"
 
+[tool.poetry.group.dev.dependencies]
+yamllint = "^1.33.0"
+ansible = "^8.5.0"
+molecule-docker = "^2.1.0"
+molecule = "^6.0.2"
+ansible-lint = { version = "^6.22.0", markers = "platform_system != 'Windows'" }
+netaddr = "^0.9.0"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
