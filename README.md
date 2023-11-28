@@ -14,7 +14,7 @@ Please refer to the [defaults file](/defaults/main.yml) for an up to date list o
 ```
 - hosts: servers
   roles:
-     - role: pip
+     - role: nephelaiio.pip
 ```
 
 ## Testing
