@@ -1,8 +1,9 @@
 ---
-- name: set variable overrides
+- name: Set variable overrides
   ansible.builtin.set_fact:
-    _pip_packages: "{{ pip_packages | default(pip_packages_default | sorted_get(overrides)) }}"
+    _pip_packages: "{{ pip_packages | default(_pip_packages_default) }}"
   vars:
+    _pip_packages_default:  "{{ pip_packages_default | nephelaiio.plugins.sorted_get(overrides) }}"
     overrides:
       - "{{ ansible_distribution | lower }}-{{ ansible_distribution_release | lower }}"
       - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version }}"
@@ -10,27 +11,22 @@
       - "{{ ansible_os_family | lower }}"
       - "default"
 
-- name: install pip yum packages
-  when: ansible_os_family | lower == 'redhat'
+- name: Install pip yum packages
+  when: ansible_os_family == 'RedHat'
   block:
 
-    - name: install epel
+    - name: Install epel
       ansible.builtin.yum:
         name: epel-release
 
-    - name: install pip yum packages
+    - name: Install pip yum packages
       ansible.builtin.yum:
         name: "{{ _pip_packages }}"
         state: "{{ pip_packages_state }}"
         disable_gpg_check: yes
 
-- name: install pip deb packages
+- name: Install pip deb packages
   ansible.builtin.apt:
     name: "{{ _pip_packages }}"
     state: "{{ pip_packages_state }}"
-  when: ansible_os_family | lower == 'debian'
-
-- name: install pip packages
-  ansible.builtin.pip:
-    name: "{{ pip_pip_names | default([]) }}"
-    state: "{{ pip_pip_state | default('present') }}"
+  when: ansible_os_family == 'Debian'

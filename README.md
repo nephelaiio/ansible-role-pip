@@ -1,6 +1,6 @@
 # nephelaiio.pip
 
-[![Build Status](https://github.com/nephelaiio/ansible-role-pip/workflows/molecule/badge.svg)](https://github.com/nephelaiio/ansible-role-pip/actions)
+[![Build Status](https://github.com/nephelaiio/ansible-role-pip/workflows/molecule.yml/badge.svg)](https://github.com/nephelaiio/ansible-role-pip/actions)
 [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-nephelaiio.pip-blue.svg)](https://galaxy.ansible.com/nephelaiio/pip/)
 
 An [ansible role](https://galaxy.ansible.com/nephelaiio/pip) to install and configure pip
@@ -14,7 +14,7 @@ Please refer to the [defaults file](/defaults/main.yml) for an up to date list o
 ```
 - hosts: servers
   roles:
-     - role: pip
+     - role: nephelaiio.pip
 ```
 
 ## Testing
