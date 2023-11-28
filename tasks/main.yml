@@ -1,8 +1,9 @@
 ---
 - name: Set variable overrides
   ansible.builtin.set_fact:
-    _pip_packages: "{{ pip_packages | default(pip_packages_default | sorted_get(overrides)) }}"
+    _pip_packages: "{{ pip_packages | default(_pip_packages_default) }}"
   vars:
+    _pip_packages_default:  "{{ pip_packages_default | nephelaiio.plugins.sorted_get(overrides) }}"
     overrides:
       - "{{ ansible_distribution | lower }}-{{ ansible_distribution_release | lower }}"
       - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version }}"

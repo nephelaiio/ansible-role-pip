@@ -1,2 +1,4 @@
 ---
-- nephelaiio.plugins
+roles: []
+collections:
+  - nephelaiio.plugins
