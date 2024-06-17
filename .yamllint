@@ -15,15 +15,14 @@ rules:
   commas:
     max-spaces-after: -1
     level: error
-  comments: disable
-  comments-indentation: disable
-  document-start: disable
+  comments-indentation: false
+  comments:
+    min-spaces-from-content: 1
   empty-lines:
     max: 3
     level: error
   hyphens:
     level: error
-  indentation: disable
   key-duplicates: enable
   line-length: disable
   new-line-at-end-of-file: disable
@@ -31,3 +30,6 @@ rules:
     type: unix
   trailing-spaces: disable
   truthy: disable
+  octal-values:
+    forbid-implicit-octal: true # yamllint defaults to false
+    forbid-explicit-octal: true # yamllint defaults to false
