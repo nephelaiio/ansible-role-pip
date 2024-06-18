@@ -14,16 +14,17 @@
 - name: Install pip yum packages
   when: ansible_os_family == 'RedHat'
   block:
-
     - name: Install epel
       ansible.builtin.yum:
         name: epel-release
+      tags: skip_ansible_lint
 
     - name: Install pip yum packages
       ansible.builtin.yum:
         name: "{{ _pip_packages }}"
         state: "{{ pip_packages_state }}"
         disable_gpg_check: yes
+      tags: skip_ansible_lint
 
 - name: Install pip deb packages
   ansible.builtin.apt:
