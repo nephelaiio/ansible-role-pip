@@ -16,6 +16,7 @@ test: lint
 install:
 	@type poetry >/dev/null || pip3 install poetry
 	@poetry install --no-root
+	@poetry self add poetry-plugin-export
 
 lint: install
 	poetry run yamllint .
@@ -51,4 +52,4 @@ version:
 	@poetry run molecule --version
 
 debug: version
-	@poetry export --dev --without-hashes
+	@poetry export --dev --without-hashes || exit 0
