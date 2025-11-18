@@ -14,8 +14,7 @@ jobs:
     strategy:
       matrix:
         scenario:
-          - install
-          - hold
+          - default
         image:
           - name: ubuntu2404
             command: /lib/systemd/systemd
