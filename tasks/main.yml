@@ -3,7 +3,7 @@
   ansible.builtin.set_fact:
     _pip_packages: "{{ pip_packages | default(_pip_packages_default) }}"
   vars:
-    _pip_packages_default:  "{{ pip_packages_default | nephelaiio.plugins.sorted_get(overrides) }}"
+    _pip_packages_default: "{{ pip_packages_default | nephelaiio.plugins.sorted_get(overrides) }}"
     overrides:
       - "{{ ansible_distribution | lower }}-{{ ansible_distribution_release | lower }}"
       - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version }}"
@@ -23,7 +23,7 @@
       ansible.builtin.yum:
         name: "{{ _pip_packages }}"
         state: "{{ pip_packages_state }}"
-        disable_gpg_check: yes
+        disable_gpg_check: true
       tags: skip_ansible_lint
 
 - name: Install pip deb packages
